@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#  create-calendar.py - Create khaarazmi calendar note-book, Version 1.0
-#  Copyright 2019 ardeshirv@protonmail.com, Licensed Under GPLv3+
+#  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
+#  Copyright (c) 2019 ardeshirv@protonmail.com, Licensed Under GPLv3+
 
 
 def main(args):
