@@ -5,7 +5,6 @@
 
 
 def main(args):
-    file_path = '/home/asha/Documents/Desktop/1398.txt'
     day_pattern = ('تاریخ: {}/{}/{} {}\nعنوان: {}\nبرنامه: ' +
                    '\nگزارش: \nبرآیند: \nتوضیحات: \n\n')
     month_pattern = '\n\n    {} {}\n\n\n'
@@ -13,13 +12,24 @@ def main(args):
                    'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند']
     day_names = ['شنبه', 'یکشنبه', 'دوشنبه',
                  'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه']
-    print('Create khaarazmi calendar note-book, Version 1.0\n' + file_path)
     day = 1
     month = 1
     days = 365
     year = 1398
     index = 101
     day_name = 5
+    file_path = '{}.txt'.format(year)
+
+    blnColor = True
+    strAppName = "create-calendar"
+    strAppYear = "2019"
+    strAppDescription = "Creates Persian calendar note-book template"
+    strVersion = "1.0"
+    strLicense = "GPLv3+"
+    strCopyright = "ardeshirv@protonmail.com"
+    print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
+    print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
+
     with open(file_path, 'w') as f:
         for i in range(index, index + days):
             if day == 1:
@@ -42,6 +52,7 @@ def main(args):
                 if month > 12:
                     month = 1
                     Year += 1
+    print('\033[0mOutput: \033[0;35m{}\033[0m'.format(file_path))
     return 0
 
 
@@ -59,6 +70,24 @@ def convert_num_to_persian_str(n):
     if len(value) < 2:
         value = '۰' + value
     return value
+
+
+def FormatTitle(strAppName, strAppDescription, strVersion, blnColor):
+    NoneColored = "%s - %s Version %s\n"
+    Colored = "\033[1;33m%s\033[0;33m - %s \033[1;33mVersion %s\033[0m\n"
+    strFormat = {NoneColored, Colored}
+    sprintf(chrArrBuff, strFormat[color], AppName, AppDescription, AppVersion)
+    return ''
+
+
+def FormatCopyright(strAppYear, strCopyright, strLicense, blnColor):
+    NoneColored = "Copyright (c) %s %s, Licensed under %s\n\n"
+    Colored = ("\033[0;33mCopyright (c) \033[1;33m%s \033[1;34m%s" +
+               "\033[0;33m, Licensed under \033[1;33m%s\033[0;33m" +
+               "\033[0m\n\n")
+    strFormat = {NoneColored, Colored};
+    sprintf(chrArrBuff, strFormat[color], AppYear, AppCopyright, AppLicense);
+    return ''
 
 
 if __name__ == '__main__':
