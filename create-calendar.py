@@ -2,9 +2,20 @@
 # -*- coding: utf-8 -*-
 #  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
 #  Copyright (c) 2019 ardeshirv@protonmail.com, Licensed Under GPLv3+
+import platform
 
 
 def main(args):
+    blnColor = False if (platform.system() == 'Windows') else True
+    strAppName = "create-calendar"
+    strAppYear = "2019"
+    strAppDescription = "Creates Persian calendar note-book template"
+    strVersion = "1.0"
+    strLicense = "GPLv3+"
+    strCopyright = "ardeshirv@protonmail.com"
+    print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
+    print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
+
     day_pattern = ('تاریخ: {}/{}/{} {}\nعنوان: {}\nبرنامه: ' +
                    '\nگزارش: \nبرآیند: \nتوضیحات: \n\n')
     month_pattern = '\n\n    {} {}\n\n\n'
@@ -19,16 +30,6 @@ def main(args):
     index = 101
     day_name = 5
     file_path = '{}.txt'.format(year)
-
-    blnColor = True
-    strAppName = "create-calendar"
-    strAppYear = "2019"
-    strAppDescription = "Creates Persian calendar note-book template"
-    strVersion = "1.0"
-    strLicense = "GPLv3+"
-    strCopyright = "ardeshirv@protonmail.com"
-    print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
-    print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
 
     with open(file_path, 'w') as f:
         for i in range(index, index + days):
@@ -73,21 +74,18 @@ def convert_num_to_persian_str(n):
 
 
 def FormatTitle(strAppName, strAppDescription, strVersion, blnColor):
-    NoneColored = "%s - %s Version %s\n"
-    Colored = "\033[1;33m%s\033[0;33m - %s \033[1;33mVersion %s\033[0m\n"
-    strFormat = {NoneColored, Colored}
-    sprintf(chrArrBuff, strFormat[color], AppName, AppDescription, AppVersion)
-    return ''
+    NoneColored = "{} - {} Version {}\n"
+    Colored = "\033[1;33m{}\033[0;33m - {} \033[1;33mVersion {}\033[0m"
+    strFormat = Colored if blnColor else NoneColored
+    return strFormat.format(strAppName, strAppDescription, strVersion)
 
 
 def FormatCopyright(strAppYear, strCopyright, strLicense, blnColor):
-    NoneColored = "Copyright (c) %s %s, Licensed under %s\n\n"
-    Colored = ("\033[0;33mCopyright (c) \033[1;33m%s \033[1;34m%s" +
-               "\033[0;33m, Licensed under \033[1;33m%s\033[0;33m" +
-               "\033[0m\n\n")
-    strFormat = {NoneColored, Colored};
-    sprintf(chrArrBuff, strFormat[color], AppYear, AppCopyright, AppLicense);
-    return ''
+    NoneColored = "Copyright (c) {} {}, Licensed under {}\n\n"
+    Colored = ("\033[0;33mCopyright (c) \033[1;33m{} \033[1;34m{}" +
+               "\033[0;33m, Licensed under \033[1;33m{}\033[0m\n")
+    strFormat = Colored if blnColor else NoneColored
+    return strFormat.format(strAppYear, strCopyright, strLicense)
 
 
 if __name__ == '__main__':
