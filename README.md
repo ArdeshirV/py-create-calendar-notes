@@ -7,4 +7,4 @@
 <h5>Output file contents:</h5>
 <img alt="Output file contents" src="https://raw.githubusercontent.com/ArdeshirV/py-create-calendar-notes/master/img/1398.txt.png">
 <br/>
-<p>Copyright&copy; 2019 <a target="_blank" href="mailto:ardeshirv@protonmail.com">ardeshirv@protonmail.com</a>, Licensed Under GPL<sup>v3+</sup></p>
+<p>Copyright&copy; 2019 <a target="_blank" href="mailto:ardeshirv@protonmail.com">ardeshirv@protonmail.com</a>, Licensed under GPL<sup>v3+</sup></p>
