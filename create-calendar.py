@@ -1,18 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
-#  Copyright (c) 2019 ardeshirv@protonmail.com, Licensed Under GPLv3+
+#  Copyright (c) 2019 ardeshirv@protonmail.com, Licensed under GPLv3+
 import platform
 
 
 def main(args):
-    blnColor = False if (platform.system() == 'Windows') else True
     strAppName = "create-calendar"
     strAppYear = "2019"
     strAppDescription = "Creates Persian calendar note-book template"
     strVersion = "1.0"
     strLicense = "GPLv3+"
     strCopyright = "ardeshirv@protonmail.com"
+    blnColor = False if (platform.system() == 'Windows') else True
     print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
     print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
 
@@ -89,5 +89,5 @@ def FormatCopyright(strAppYear, strCopyright, strLicense, blnColor):
 
 
 if __name__ == '__main__':
-    import sys
-    sys.exit(main(sys.argv))
+    from sys import exit, argv
+    exit(main(argv))
