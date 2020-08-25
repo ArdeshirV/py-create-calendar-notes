@@ -26,9 +26,9 @@ def main(args):
     day = 1
     month = 1
     days = 365
-    year = 1398
+    year = 1399
     index = 1
-    day_name = 5
+    day_name = 6
     file_path = '{}.txt'.format(year)
 
     with open(file_path, 'w') as f:
