@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
-#  Copyright (c) 2019 ardeshirv@protonmail.com, Licensed under GPLv3+
+#  Copyright (c) 2019 ArdeshirV@protonmail.com, Licensed under GPLv3+
 import platform
 
 
@@ -11,7 +11,7 @@ def main(args):
     strAppDescription = "Creates Persian calendar note-book template"
     strVersion = "1.0"
     strLicense = "GPLv3+"
-    strCopyright = "ardeshirv@protonmail.com"
+    strCopyright = "ArdeshirV@protonmail.com"
     blnColor = False if (platform.system() == 'Windows') else True
     print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
     print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
@@ -27,7 +27,7 @@ def main(args):
     month = 1
     days = 365
     year = 1398
-    index = 101
+    index = 1
     day_name = 5
     file_path = '{}.txt'.format(year)
 
