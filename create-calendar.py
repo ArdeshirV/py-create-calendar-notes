@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
 #  Copyright (c) 2019 ArdeshirV@protonmail.com, Licensed under GPLv3+
@@ -91,3 +91,4 @@ def FormatCopyright(strAppYear, strCopyright, strLicense, blnColor):
 if __name__ == '__main__':
     from sys import exit, argv
     exit(main(argv))
+
