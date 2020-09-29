@@ -6,16 +6,7 @@ import platform
 
 
 def main(args):
-    strAppName = "create-calendar"
-    strAppYear = "2019"
-    strAppDescription = "Creates Persian calendar note-book template"
-    strVersion = "1.0"
-    strLicense = "GPLv3+"
-    strCopyright = "ArdeshirV@protonmail.com"
-    blnColor = False if (platform.system() == 'Windows') else True
-    print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
-    print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
-
+    print_title()
     day_pattern = ('تاریخ: {}/{}/{} {}\nعنوان: {}\nبرنامه: ' +
                    '\nگزارش: \nبرآیند: \nتوضیحات: \n\n')
     month_pattern = '\n\n    {} {}\n\n\n'
@@ -71,6 +62,23 @@ def convert_num_to_persian_str(n):
     if len(value) < 2:
         value = '۰' + value
     return value
+
+
+def print_title():
+    blnColor = True
+    strAppName = "create-calendar"
+    strAppYear = "2019"
+    strAppDescription = "Creates Persian calendar note-book template"
+    strVersion = "1.0"
+    strLicense = "GPLv3+"
+    strCopyright = "ArdeshirV@protonmail.com"
+
+    if platform.system() == 'Windows':
+        from colorama import init
+        init()
+
+    print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
+    print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
 
 
 def FormatTitle(strAppName, strAppDescription, strVersion, blnColor):
