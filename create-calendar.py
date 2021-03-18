@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 #  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
 #  Copyright (c) 2019 ArdeshirV@protonmail.com, Licensed under GPLv3+
-import platform
+from title import print_title
 
 
 def main(args):
-    print_title()
+    print_title("create-calendar", "Creates Persian calendar note-book template",
+                "1.0", "2019", "ArdeshirV@protonmail.com", "GPLv3+", True)
     day_pattern = ('تاریخ: {}/{}/{} {}\nعنوان: {}\nبرنامه: ' +
                    '\nگزارش: \nبرآیند: \nتوضیحات: \n\n')
     month_pattern = '\n\n    {} {}\n\n\n'
@@ -17,9 +18,9 @@ def main(args):
     day = 1
     month = 1
     days = 365
-    year = 1399
+    year = 1400
     index = 1
-    day_name = 6
+    day_name = 1
     file_path = '{}.txt'.format(year)
 
     with open(file_path, 'w') as f:
@@ -44,7 +45,7 @@ def main(args):
                 if month > 12:
                     month = 1
                     Year += 1
-    print('\033[0mOutput: \033[0;35m{}\033[0m'.format(file_path))
+    print('\033[1mOutput: \033[1;35m{}\033[0m'.format(file_path))
     return 0
 
 
@@ -64,39 +65,6 @@ def convert_num_to_persian_str(n):
     return value
 
 
-def print_title():
-    blnColor = True
-    strAppName = "create-calendar"
-    strAppYear = "2019"
-    strAppDescription = "Creates Persian calendar note-book template"
-    strVersion = "1.0"
-    strLicense = "GPLv3+"
-    strCopyright = "ArdeshirV@protonmail.com"
-
-    if platform.system() == 'Windows':
-        from colorama import init
-        init()
-
-    print(FormatTitle(strAppName, strAppDescription, strVersion, blnColor))
-    print(FormatCopyright(strAppYear, strCopyright, strLicense, blnColor))
-
-
-def FormatTitle(strAppName, strAppDescription, strVersion, blnColor):
-    NoneColored = "{} - {} Version {}\n"
-    Colored = "\033[1;33m{}\033[0;33m - {} \033[1;33mVersion {}\033[0m"
-    strFormat = Colored if blnColor else NoneColored
-    return strFormat.format(strAppName, strAppDescription, strVersion)
-
-
-def FormatCopyright(strAppYear, strCopyright, strLicense, blnColor):
-    NoneColored = "Copyright (c) {} {}, Licensed under {}\n\n"
-    Colored = ("\033[0;33mCopyright (c) \033[1;33m{} \033[1;34m{}" +
-               "\033[0;33m, Licensed under \033[1;33m{}\033[0m\n")
-    strFormat = Colored if blnColor else NoneColored
-    return strFormat.format(strAppYear, strCopyright, strLicense)
-
-
 if __name__ == '__main__':
     from sys import exit, argv
     exit(main(argv))
-
