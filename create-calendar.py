@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
-#  Copyright (c) 2019 ArdeshirV@protonmail.com, Licensed under GPLv3+
+#  Copyright (c) 2019-2023 ArdeshirV@protonmail.com, Licensed under GPLv3+
+import sys
 from title import print_title
 
 
@@ -18,9 +19,9 @@ def main(args):
     day = 1
     month = 1
     days = 365
-    year = 1400
+    year = 1402
     index = 1
-    day_name = 1
+    day_name = 2
     file_path = '{}.txt'.format(year)
 
     with open(file_path, 'w') as f:
@@ -66,5 +67,4 @@ def convert_num_to_persian_str(n):
 
 
 if __name__ == '__main__':
-    from sys import exit, argv
-    exit(main(argv))
+    sys.exit(main(sys.argv))
