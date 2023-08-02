@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 #  create-calendar.py - Creates Persian calendar note-book template, Version 1.0
 #  Copyright (c) 2019-2023 ArdeshirV@protonmail.com, Licensed under GPLv3+
 import sys
-from title import print_title
+import title
 
 
 def main(args):
-    print_title("create-calendar", "Creates Persian calendar note-book template",
+    title.print_title("create-calendar", "Creates Persian calendar note-book template",
                 "1.0", "2019", "ArdeshirV@protonmail.com", "GPLv3+", True)
     day_pattern = ('تاریخ: {}/{}/{} {}\nعنوان: {}\nبرنامه: ' +
                    '\nگزارش: \nبرآیند: \nتوضیحات: \n\n')
