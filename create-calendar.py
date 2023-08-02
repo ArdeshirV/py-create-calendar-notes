@@ -21,7 +21,7 @@ def main(args):
     days = 365
     year = 1402
     index = 1
-    day_name = 2
+    day_name = 3
     file_path = '{}.txt'.format(year)
 
     with open(file_path, 'w') as f:
