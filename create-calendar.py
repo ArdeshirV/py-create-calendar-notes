@@ -17,10 +17,10 @@ def main(args):
                  'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه']
     day = 1
     month = 1
-    days = 365
-    year = 1402
+    days = 366
+    year = 1403
     index = 1
-    day_name = 3
+    day_name = 4
     file_path = '{}.txt'.format(year)
 
     with open(file_path, 'w') as f:
@@ -43,8 +43,9 @@ def main(args):
                 day = 1
                 month += 1
                 if month > 12:
+                    day = 1
                     month = 1
-                    Year += 1
+                    year += 1
     print('\033[1mOutput: \033[1;35m{}\033[0m'.format(file_path))
     return 0
 
