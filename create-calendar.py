@@ -43,7 +43,6 @@ def main(args):
                 day = 1
                 month += 1
                 if month > 12:
-                    day = 1
                     month = 1
                     year += 1
     print('\033[1mOutput: \033[1;35m{}\033[0m'.format(file_path))
@@ -53,12 +52,9 @@ def main(args):
 def convert_num_to_persian_str(n):
     value = ''
     num_str = str(n)
-    english_num = '0123456789'
     persian_num = '۰۱۲۳۴۵۶۷۸۹'
     for c in num_str:
-        for i in range(0, 10):
-            if c == english_num[i]:
-                value += persian_num[i]
+        value += persian_num[int(c)]
     if len(value) < 2:
         value = '۰' + value
     if len(value) < 2:
